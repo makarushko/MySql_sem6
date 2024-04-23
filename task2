@@ -1,0 +1,14 @@
+CREATE PROCEDURE divisible_numbers()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    DECLARE result TEXT DEFAULT '';
+
+    WHILE i <= 1000 DO
+        IF i % 15 = 0 OR i % 33 = 0 THEN
+            SET result = CONCAT(result, i, ',');
+        END IF;
+        SET i = i + 1;
+    END WHILE;
+
+    SELECT SUBSTRING(result, 1, LENGTH(result) - 1) AS divisible_numbers;
+END;
